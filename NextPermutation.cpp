@@ -16,6 +16,46 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
+        int len = nums.size();
+        int permute_num = nums[len - 1];
+        int permute_loc = len - 1;
+        bool permutationable = false;
+        for (int i = len - 2; i >= 0; --i) {
+            if (nums[i] < permute_num) {
+                permute_num = nums[i];
+                permute_loc = i;
+                permutationable = true;
+                break;
+            } else {
+                permute_num = nums[i];
+                permute_loc = i;
+            }
+        }
         
+        if (!permutationable) {
+            std::reverse(num.begin(), nums.end());
+            return;
+        }
+
+        // binary search in permute_loc + 1 to len - 1, find the one that is 
+        // larger than permute_num
+        int ben = permute_loc + 1;
+        int end = len - 1;
+        while (end - ben > 1) {
+            int mid = ben + (end - ben) / 2;
+            if (nums[mid] > permute_num)
+                ben = mid;
+            else
+                end = mid - 1;
+        }
+        
+        int change_loc;
+        if (nums[end] > permute_num || end == 0)
+            change_loc = end;
+        else
+            change_loc = ben;
+
+        std::iter_swap(nums.begin() + permute_loc, nums.begin() + change_loc);
+        std::reverse(nums.begin() + permute_loc + 1, nums.end());
     }
 };
