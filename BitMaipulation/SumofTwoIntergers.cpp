@@ -8,13 +8,12 @@
 class Solution {
 public:
     int getSum(int a, int b) {
-        int res = 0;
-        for (int i = 0; i < 32; ++i) {
-            if ((a >> i) & 1 && (b >> i) & 1) {
-                res += (1 << (i + 1));
-            } else if ((a >> i) & 1 || (b >> i) & 1) {
-                res += (1 << i);
-            }
+        int res = 0, carry = 0;
+        for (int i = 0; i < 32; a >>= 1, b >>= 1, ++i) {
+            int last_a = a & 1;
+            int last_b = b & 1;
+            res |= (last_a ^ last_b ^ carry) << i;
+            carry = (last_a & last_b) | (carry & last_a) | (carry & last_b);
         }
         return res;
     }
