@@ -18,7 +18,7 @@ public:
         vector<vector<int>> res;
         for (int i = 0; i < numRows; ++i) {
             vector<int> row(i + 1, 1);
-            if (i > 0) {
+            if (i > 1) {
                 vector<int> lastRow = res[i - 1];
                 for (int j = 1; j < i; ++j) {
                     row[j] = lastRow[j - 1] + lastRow[j];
