@@ -35,3 +35,36 @@ public:
         return ret;
     }
 };
+
+// write by my own
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        if (num1.empty() || num2.empty()) return "";
+        if (num1 == "0" || num2 == "0") return "0";
+        std::reverse(num1.begin(), num1.end());
+        std::reverse(num2.begin(), num2.end());
+        int m = num1.size(), n = num2.size();
+        string res(m + n, '0');
+        for (int i = 0; i < m; ++i) {
+            int carry = 0;
+            int add = num1[i] - '0';
+            for (int j = 0; j < n; ++j) {
+                int val = add * (num2[j] - '0') + (res[j + i] - '0') + carry;
+                carry = val / 10;
+                res[j + i] = val % 10 + '0';
+            }
+            if (carry != 0)
+                res[i + n] = carry + '0';
+        }
+
+        std::reverse(res.begin(), res.end());
+        int count = 0;
+        for (int i = 0; i < res.size(); ++i) {
+            if (res[i] == '0') ++count;
+            else break;
+        }
+        res.erase(0, count);
+        return res;
+    }
+};
