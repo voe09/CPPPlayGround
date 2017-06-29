@@ -19,6 +19,9 @@ How about multiple spaces between two words?
 Reduce them to a single space in the reversed string.
 */
 
+
+
+
 class Solution {
 public:
     void reverseWords(string &s) {
