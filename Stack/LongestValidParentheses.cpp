@@ -59,9 +59,45 @@ class Solution {
 
 
 // Stack
+
+/*
+1) Create an empty stack and push -1 to it. The first element
+   of stack is used to provide base for next valid string. 
+
+2) Initialize result as 0.
+
+3) If the character is '(' i.e. str[i] == '('), push index 
+   'i' to the stack. 
+   
+2) Else (if the character is ')')
+   a) Pop an item from stack (Most of the time an opening bracket)
+   b) If stack is not empty, then find length of current valid
+      substring by taking difference between current index and
+      top of the stack. If current length is more than result,
+      then update the result.
+   c) If stack is empty, push current index as base for next
+      valid substring.
+
+3) Return result.
+*/
 class Solution {
 public:
     int longestValidParentheses(string s) {
+        stack<int> stk;
+        stk.push(-1);
+        int res = 0, length = s.size();
+        for (int i = 0; i < length; ++i) {
+            if (s[i] == '(') {
+                stk.push(i);
+            }
+            else {
+                stk.pop();
+                if (!stk.empty())
+                    res = max(res, i - stk.top());
+                else stk.push(i);
+            }
             
+        }
+        return res;
     }
 };
