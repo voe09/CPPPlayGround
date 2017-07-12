@@ -23,15 +23,15 @@ class WordDictionary {
 public:
     /** Initialize your data structure here. */
     WordDictionary() {
-        root_ = new TreeNode();
+        root_ = new TreeNode(-1);
     }
 
     /** Adds a word into the data structure. */
     void addWord(string word) {
         TreeNode *curr = root_;
-        for (const auto &ch: word) {
+        for (int i = 0; i < word.size(); ++i) {
             if (!curr->links[ch - 'a'])
-                curr->links[ch - 'a'] = new TreeNode();
+                curr->links[ch - 'a'] = new TreeNode(i);
             curr = curr->links[ch - 'a'];
         }
         curr->is_word = true;
@@ -41,17 +41,16 @@ public:
     bool search(string word) {
         stack<TreeNode*> stk;
         stk.push(root_);
-        int i = 0;
         while (!stk.empty()) {
             TreeNode *curr = stk.top();
             stk.pop();
+            if (curr->is_word && curr->depth == word.size()) return true;
             if (word[i] != '.') {
                 if (curr->links[word[i] - 'a']) {
                     stk.push(curr->links[word[i] - 'a']);
-                    ++i;
-                }
+                } 
                 else
-                    --i;
+                    continue;
             } else {
                 for (const auto &ptr: curr->links) {
                     if (ptr) {
@@ -65,8 +64,10 @@ public:
 private:
     struct TreeNode {
         bool is_word;
+        int depth;
         vector<TreeNode*> links;
-        TreeNode(): is_word(false), links(vector<TreeNode*>(26, nullptr)) {}
+        TreeNode(int x): is_word(false), depth(x),
+                    links(vector<TreeNode*>(26, nullptr)) {}
     };
 
     TreeNode *root_;
