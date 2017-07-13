@@ -23,16 +23,16 @@ class WordDictionary {
 public:
     /** Initialize your data structure here. */
     WordDictionary() {
-        root_ = new TreeNode(-1);
+        root_ = new TreeNode(0);
     }
 
     /** Adds a word into the data structure. */
     void addWord(string word) {
         TreeNode *curr = root_;
         for (int i = 0; i < word.size(); ++i) {
-            if (!curr->links[ch - 'a'])
-                curr->links[ch - 'a'] = new TreeNode(i);
-            curr = curr->links[ch - 'a'];
+            if (!curr->links[word[i] - 'a'])
+                curr->links[word[i] - 'a'] = new TreeNode(i + 1);
+            curr = curr->links[word[i] - 'a'];
         }
         curr->is_word = true;
     }
@@ -45,10 +45,11 @@ public:
             TreeNode *curr = stk.top();
             stk.pop();
             if (curr->is_word && curr->depth == word.size()) return true;
-            if (word[i] != '.') {
-                if (curr->links[word[i] - 'a']) {
-                    stk.push(curr->links[word[i] - 'a']);
-                } 
+            if (!curr->is_word && curr->depth == word.size()) continue;
+            if (word[curr->depth] != '.') {
+                if (curr->links[word[curr->depth] - 'a']) {
+                    stk.push(curr->links[word[curr->depth] - 'a']);
+                }
                 else
                     continue;
             } else {
@@ -59,6 +60,7 @@ public:
                 }
             }
         }
+        return false;
     }
 
 private:
@@ -72,10 +74,3 @@ private:
 
     TreeNode *root_;
 };
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * WordDictionary obj = new WordDictionary();
- * obj.addWord(word);
- * bool param_2 = obj.search(word);
- */
