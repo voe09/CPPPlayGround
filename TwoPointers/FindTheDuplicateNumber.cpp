@@ -13,6 +13,46 @@ There is only one duplicate number in the array, but it could be repeated more t
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        
+        int low = 1, high = nums.size() - 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            int cnt = 0;
+            for (const auto &num: nums) {
+                if (num <= mid) ++cnt;
+            }
+            if (cnt <= mid) low = mid + 1;
+            else high = mid;
+        }
+        return low;
     }
 };
+
+
+
+// Wront answer: modify the array
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        return insertionSort(nums);
+    }
+
+private:
+    int insertionSort(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); ++i) {
+            int key = nums[i];
+            int j = i - 1;
+
+            while (j >= 0 && nums[j] > key) {
+                nums[j + 1] = nums[j];
+                --j;
+            }
+            if (nums[j] == key) return key;
+            nums[j + 1] = key;
+        }
+    }
+};
+
+// best solution
+http://bookshadow.com/weblog/2015/09/28/leetcode-find-duplicate-number/
+
+
