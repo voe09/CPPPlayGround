@@ -24,7 +24,7 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         if (nums.empty()) return -1;
-        // Find the pivot
+        // Find the pivot, wrong answer, use binary search to find pivot
         int length = nums.size(), pivot = 1;
         for (;pivot < length; ++pivot) {
             if (nums[pivot] < nums[pivot - 1])
@@ -83,3 +83,68 @@ public:
         return -1;
     }
 };
+
+
+/*
+当target != A[mid]时，可以分情况判断：
+当A[mid] < A[end] < A[start]：情况1，右半序列A[mid+1 : end] sorted
+A[mid] < target <= A[end], 右半序列，否则为左半序列。
+当A[mid] > A[start] > A[end]：情况2，左半序列A[start : mid-1] sorted
+A[start] <= target < A[mid], 左半序列，否则为右半序列
+ */
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        if (nums.empty()) return -1;
+        int low = 0, high = nums.size() - 1;
+        return search(nums, low, high, target);
+    }
+
+    int search(vector<int>& nums, int low, int high, int target) {
+        if (low > high) return -1;
+        int mid = low + (high - low) / 2;
+        if (nums[mid] == target) return mid;
+        else {
+            if (nums[mid] < nums[end]) { // right half sorted
+                if (target > nums[mid] && target <= nums[end])
+                    return search(nums, mid + 1, end, target);
+                else
+                    return search(nums, start, mid - 1, target);
+            } else {
+                if (target >= nums[start] && target < nums[mid])
+                    return search(nums, start, mid - 1, target);
+                else
+                    return search(nums, mid + 1, end, target);
+            }
+        }
+    }
+};
+
+// Iterative method
+class Solution {
+public:
+    int search(int A[], int n, int target) {
+        int start = 0, end = n-1;
+        while(start<=end) {
+            int mid = start + (end-start)/2;
+            if(A[mid]==target) return mid;  
+            
+            if(A[mid]<A[end]) { // right half sorted
+                if(target>A[mid] && target<=A[end])
+                    start = mid+1;
+                else
+                    end = mid-1;
+            }
+            else {  // left half sorted
+                if(target>=A[start] && target<A[mid]) 
+                    end = mid-1;
+                else
+                    start = mid+1;
+            }
+        }
+        return -1;
+    }
+};
+
+
