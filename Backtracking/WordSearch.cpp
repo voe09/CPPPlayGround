@@ -25,16 +25,47 @@ public:
         int m = board.size(), n = board[0].size();
         vector<vector<bool>> visited(m, vector<bool>(n, false));
         string cur = "";
-        return DFS(board, visited, cur, word);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (isValid(board, cur, word, i, j)) {
+                    cur = cur + board[i][j];
+                    visited[i][j] = true;
+                    if (DFS(board, visited, cur, i, j, word)) return true;
+                    visited[i][j] = false;
+                    cur.pop_back();
+                }
+            }
+        }
+        return false;
     }
 
 private:
     bool DFS(vector<vector<char>>& board, vector<vector<bool>>& visited,
-            string& cur, string& word) {
+            string& cur, int i, int j, string& word) {
         if (cur == word) {
-            return false;
+            return true;
         }
         vector<pair<int, int>> directions{{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+        
+        int m = board.size(), n = board[0].size();
+        for (const auto& pair : directions) {
+            int x = i + pair.first, y = j + pair.second;
+            if (x >= 0 && x < m && y >= 0 && y < n
+                && isValid(board, cur, word, x, y) && !visited[x][y]) {
+                cur = cur + board[x][y];
+                visited[x][y] = true;
+                if (DFS(board, visited, cur, x, y, word)) return true;
+                visited[x][y] = false;
+                cur.pop_back();
+            }
+        }
+        
+        return false;
+    }
 
+    bool isValid(vector<vector<char>>& board, string& cur, string& word, int i, int j) {
+        int len = cur.size();
+        if (word[len] != board[i][j]) return false;
+        else return true;
     }
 };
