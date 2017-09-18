@@ -51,3 +51,31 @@ public:
         return res;
     }
 };
+
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int res = 0;
+        unordered_set<int> lookup(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); ++i) {
+            if (lookup.count(nums[i])) {
+                lookup.erase(nums[i]);
+                int prev = nums[i] - 1;
+                int next = nums[i] + 1;
+                while (lookup.count(prev)) {
+                    lookup.erase(prev);
+                    --prev;
+                }
+
+                while (lookup.count(next)) {
+                    lookup.erase(next);
+                    ++next;
+                }
+
+                res = max(res, next - prev - 1);
+            }
+        }
+        return res;
+    }
+};
