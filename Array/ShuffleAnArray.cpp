@@ -37,7 +37,7 @@ public:
     vector<int> shuffle() {
         vector<int> res = vec;
         for (int i = 0; i < res.size(); ++i) {
-            int t = rand() % res.size();
+            int t = i + rand() % (res.size() - i); // 不能用rand() % res.size()，因为不是随机分布
             swap(res[i], res[t]);
         }
         return res;

@@ -24,6 +24,31 @@ The n will be in the range [1, 1000].
 class Solution {
 public:
     int minSteps(int n) {
+        vector<int> dp(n + 1, 0);
+        for (int i = 2; i <= n; ++i) {
+            dp[i] = i;
+            for (int j = i - 1; j > 1; --j) {
+                if (i % j == 0)
+                    dp[i] = min(dp[i], dp[j] + i / j);
+            }
+        }
+        return dp[n];
+    }
+};
 
+
+class Solution {
+public:
+    int minSteps(int n) {
+        vector<int> dp(n + 1, 0);
+        for (int i = 2; i <= n; ++i) {
+            dp[i] = i;
+            for (int j = i - 1; j > 1; --j) {
+                if (i % j == 0) {
+                    dp[i] = min(dp[i], dp[j] + i / j);
+                }
+            }
+        }
+        return dp[n];
     }
 };

@@ -41,3 +41,33 @@ public:
  * obj.update(i,val);
  * int param_2 = obj.sumRange(i,j);
  */
+
+
+
+/* Binary Index Tree Youtube video
+Binary Indexed Tree is represented as an array. Let the array be BITree[]. 
+Each node of Binary Indexed Tree stores sum of some elements of given array. 
+Size of Binary Indexed Tree is equal to n where n is size of input array. 
+In the below code, we have used size as n+1 for ease of implementation.
+
+getSum(index): Returns sum of arr[0..index]
+// Returns sum of arr[0..index] using BITree[0..n].  It assumes that
+// BITree[] is constructed for given array arr[0..n-1]
+1) Initialize sum as 0 and index as index+1.
+2) Do following while index is greater than 0.
+...a) Add BITree[index] to sum
+...b) Go to parent of BITree[index].  Parent can be obtained by removing
+     the last set bit from index, i.e., index = index - (index & (-index))
+3) Return sum.
+
+update(index, val): Updates BIT for operation arr[index] += val
+// Note that arr[] is not changed here.  It changes
+// only BI Tree for the already made change in arr[].
+1) Initialize index as index+1.
+2) Do following while index is smaller than or equal to n.
+...a) Add value to BITree[index]
+...b) Go to parent of BITree[index].  Parent can be obtained by removing
+     the last set bit from index, i.e., index = index + (index & (-index))
+ */
+
+

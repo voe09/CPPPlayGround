@@ -45,23 +45,6 @@ Step 4, in worst case will require another pass, taking O(n) time.
  */
 
 class Solution {
-public:
-    int maximumSwap(int num) {
-        int divisor = 1;
-        while (num / divisor > 0) {
-            divisor *= 10;
-        }
-        
-        divisor /= 10;
-
-        int prev = num / divisor;
-        int curr = 
-    }
-};
-
-
-
-class Solution {
     public int maximumSwap(int num) {
         String temp = Integer.toString(num);     //Convert to int array (num -> digits[])
         int[] digits = new int[temp.length()];
@@ -102,3 +85,35 @@ class Solution {
         return result;
     }
 }
+
+
+class Solution {
+public:
+    int maximumSwap(int num) {
+        string tmp = to_string(num);
+        int minIdx = 0;
+        for (int i = 0; i < tmp.size() - 1; ++i) {
+            if (tmp[i] >= tmp[i + 1]) {
+                minIdx = i;
+            } else break;
+        }
+        if (minIdx == tmp.size() - 2 && tmp[minIdx] >= tmp[minIdx + 1]) return num;
+        ++minIdx;
+        int maxIdx = minIdx;
+        for (int i = minIdx + 1; i < tmp.size(); ++i) {
+            if (tmp[i] >= tmp[maxIdx]) maxIdx = i;
+        }
+
+        int swapIdx = minIdx;
+        for (int i = 0; i <= minIdx; ++i) {
+            if (tmp[i] < tmp[maxIdx]) {
+                swapIdx = i;
+                break;
+            }
+        }
+
+        std::swap(tmp[swapIdx], tmp[maxIdx]);
+        return stoi(tmp);
+
+    }
+};
