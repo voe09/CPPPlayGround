@@ -19,10 +19,15 @@ The median is (2 + 3)/2 = 2.5
 /*
 median of the two sorted arrays is the (m+n)/2+1 th element (if m+n is odd),
 the average of (m+n)/2 th and (m+n)/2+1 th  (if m+n is even).
-Our task becomes finding the Kth (K or K+1, K=(m+n)/2) number in two sorted arrays, in O(log(m+n)) time constraint
-Our task becomes finding the Kth (K or K+1, K=(m+n)/2) number in two sorted arrays, in O(log(m+n)) time constraint (what's in your mind to see log? Yes, binary search).
+Our task becomes finding the Kth (K or K+1, K=(m+n)/2) number in two sorted 
+arrays, in O(log(m+n)) time constraint
+Our task becomes finding the Kth (K or K+1, K=(m+n)/2) number in two sorted
+arrays, in O(log(m+n)) time constraint (what's in your mind to see log? 
+Yes, binary search).
 
-Similar to but slight different from binary search, we still divide K into two halves each time. Two pointers are used for each array, so that we can compare which side is smaller (?A[pa]>B[pb]).
+Similar to but slight different from binary search, we still divide K into two
+halves each time. Two pointers are used for each array, so that we can compare 
+which side is smaller (?A[pa]>B[pb]).
 E.g., A = [1,3,5,7,9]  B = [2,4,8,10,12,14,16,18]. K=(5+8) /2= 6.
 
 pa = K/2 = 3;
@@ -32,8 +37,13 @@ A[1,3,5,7,9]
          pb
 B[2,4,8,10,12,14,16,18]
 
-if (A[pa]<B[pb]), which means the elements from A[0] to A[pa] must exist in the first Kth elements.
-The next step now becomes finding the (K-pa) th (equals to K/2) element in the array A[pa:end] and B[].  This procedure can be viewed as "cutting" K/2 elements from the "smaller" array, and continue find the other K/2 th elements from the "bigger" array and the array after the cut. Note that smaller and bigger here is the comparison of the last elements.
+if (A[pa]<B[pb]), which means the elements from A[0] to A[pa] must exist in the
+first Kth elements.
+The next step now becomes finding the (K-pa) th (equals to K/2) element in the
+array A[pa:end] and B[].  This procedure can be viewed as "cutting" K/2 elements
+from the "smaller" array, and continue find the other K/2 th elements from the
+"bigger" array and the array after the cut. Note that smaller and bigger here
+is the comparison of the last elements.
 
 if (A[pa]>B[pb]), the same procedure is applied but we "cut" the B array.
 
