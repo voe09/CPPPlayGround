@@ -95,3 +95,48 @@ public:
         return dummy->left;
     }
 };
+
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        TreeNode *dummy = new TreeNode(INT_MAX);
+        dummy->left = root;
+        TreeNode *prev = dummy;
+        TreeNode *curr = root;
+        while (curr && curr->val != key) {
+            if (curr->val > key) {
+                curr = curr->left;
+                prev = curr;
+            } else {
+                curr = curr->right;
+                prev = curr;
+            }
+        }
+        if (!curr) return root;
+
+        TreeNode *left = curr->left;
+        TreeNode *right = curr->right;
+        if (prev->left == curr) {
+            if (!right) prev->left = left;
+            else {
+                prev->left = right;
+                curr = right;
+                while (curr->left) {
+                    curr = curr->left;
+                }
+                curr->left = left;
+            }
+        } else {
+            if (!right) prev->right = left;
+            else {
+                prev->left = right;
+                curr = right;
+                while (curr->left) {
+                    curr = curr->left;
+                }
+                curr->left = left;
+            }
+        }
+        return dummy->left;
+    }
+};

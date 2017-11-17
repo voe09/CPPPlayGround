@@ -1,0 +1,566 @@
+Tree find common ancestor和smallest k elements of array
+
+算square root，先是return int，然后变成return k decimal place
+
+设计music player
+
+拼车系统，日志里记录司机的id和每个trip的起始和结束时间，如果两个trip有重叠则组成一个chain，找出最长的chain（trip的数量最多）和所属的司机 一个司机可能会pick up乘客A，pick up乘客B，drop off乘客A，pick up C， drop C， drop B， 这是一个长度为3的chain
+
+
+给一个二维 board （4 * 4） 和 一个 list of words.
+对于board, 每一个元素是一个字母。可以通过这些字母连线组成单词，连线可以为左，右，上，下，左上，右上，左下，右下，移动一位，共八种移动方式，但board 里已用过的元素不能再次使用。单词长度不定。问list 中的每一个单词是否能够通过 board 里的字母连线组成。
+
+当我们在服务器上部署新 version 的 code 是时候，如果有code 有 bug 怎么办 ？怎么防止 bug的问题？怎么让人知道这里有  bug，如果你 on call，你会怎么最简单地解决这个 bug （rollback）
+
+给一个 list，返回 reversion pairs. Reversion pair （a, b） 的要求是在 original list 中 a 在 b 的前面，但a 的值 比 b 的值要大。
+
+Design a tiny url
+followup： 1 trillion url， 定长short url怎么处理， 多terminal 如何共享url encode decode信息
+1.lc原题是用map size做tiny url，所以位数是变的。答案是转64based 7位
+2.为分布式系统设云database. more info on 1point3acres.com
+发现是经典的系统设计题，后面还有两个考点
+
+Leetcode Power of 4
+
+给了一个phone letter的map，几个数字字符串如“22222”“33333”， 一个word list，若word list中的word出现在数字对应的letter combination则得一分，求最高得分的数字，出现的定义是只要字母存在相同个数即可，无关顺序。这题弄清题意花了很长时间，明白了之后其实就是Leetcode 438
+
+给一个sorted array，输出平方并且sort。几分钟写完，然后来了几个follow up，也就是有负数怎么办？能不能写个O（n）的？输入检测？最大最小输入是多少？
+
+给出一个string，如果里面有\b就回退一个字符，然后输出最后的结果。比如abb\bc ==> abc
+
+设计instagram
+
+Leetcode 56
+
+写一个comparator的函数比较两个字符串 s1 s2。如果两个 string 都碰到连续的数字，要按数字的值来比较："a10b" > "a2b"；否则就直接按 ASCII 比较 "foo" > "abc1000" 。s1 < s2 返回一个负数，s1 > s2 返回正数，相等返回 0。
+
+第一步，先是问了machine learning相关的问题，我最熟悉的算法？介绍的是logistic regression。然后问了其他classification的kernal function。最后问了kmean的k是怎么选的，怎么判断是最好的k。都是常规的问题。. From 1point 3acres bbs
+还给了一个map相关的例子，怎么能通过数据判定路上的restriction，比如不让u turn之类的。
+第二步考了算法题，paint house，然后优化
+
+扣腚两题都不难 利口尔十尔
+另一题是给一个字典和一个字符串S，在字典的所有单词中找出一个最长的单词并且其所有字母都在S中出现过。面试官希望看到的是trie+dfs。
+设计推特留言，强调关键是要实时。
+设计一个app,用户打车的时候可以分享一个链接到朋友圈，朋友打开链接可以看到该用户的实时位置。
+
+
+1. tree 找sum最大的path ，多种方法，优化memory
+2. matrix 里找word，应该是原题
+4. design uber 临时换的面试官，啥提示啥要求都不说，只说写的不对，去之前也没有准备过，挂就挂吧
+
+店面的内容比较混，从Linux到distributed system 全都问到了，然后还让简短叙述一下如何便历树，最后终于开始写，是merge interval的变种，把两个list里的overlap 的interval merge起来。 楼主人品爆发，一写bug free，于是当天下午收到onsite
+
+onsite
+算法现在看来都是uber经常考的，可惜楼主之前太懒，没怎么准备，所以也没做过，不过好在当场都写出来了，并且run过了
+1.trie, 就是给个prefix，搜索字典里所有prefix满足的词
+2. lru
+3.design uber － 这个我真不知道自己都说了什么。。。
+4.culture fit
+5.bar raiser
+
+culture fit, bar raiser都是扯淡，谈以前的project，bar raiser最后还剩15分钟让写一个有点和word ladder类似的题，没写完，人说你看你的基本structure都写出来了，并且之前corner case也都照顾到了，相信再给你5-10分钟你就写完了，你停吧。。。
+
+
+本帖最后由 nunuh89 于 2017-5-15 16:47 编辑
+
+
+1轮,北大毕业的大牛, 来硅谷多年了,感觉人特别好的样子,完全没有为难我, video面试, 问了很长的behavior, 出了个其实真心不难的题, 然而楼主第一次遇到
+给一个正整数数组A, 输出正整数数组P
+要求, P = A[0] * A[1] *...A[i-1] * A[i+1] * ..A[n], 并且不能用除法
+就是P是除了A以外所有数的乘积.
+不难吧,当时楼主第一反应走偏了, 想搞个B tree出来, 被及时制止(大哥真是关爱智障青年), 然后收拾了一下心情写了个空间复杂O(n)的解, 然后在提醒下意识到可以空间复杂度O(1), 来不及改了.
+
+2轮, 两个国人的behavior, 这轮简直就是在和同胞侃大山.
+
+午饭, 也是个同胞带着吃的, 上午全是同胞的感觉真好就跟大学里科技社团招新一样
+. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+蓝儿吃完饭下午画风骤变
+先是一个ABC小哥, 很极客的样子, 让我写个拓扑排序, 类似利口210这种, 并且打印
+烦人的是输入是字符串, 并且如果有环要把环单独打印出来, 代码量有点大. 用javascript写了,最后没来得及跑, 给小哥纸上跑了几个test. visit 1point3acres.com for more.
+. 1point3acres.com/bbs
+4 烙印, 中年, 全程几乎死鱼脸, 题目非常精悍短小并且空前
+
+一堆选手打乒乓球比赛, 现在有他们之间的历史战绩, 求他们中间最有可能的冠军的人.. more info on 1point3acres.com
+
+我擦嘞, 整个人都尴尬了, 我要的不是这个啊, 这是ML题吧.
+什么玩意儿还乒乓, 你是不是觉得我们中国人乒乓打得好. 对啊我们就是乒乓打得好, 得冠军肯定是张继科啊还用算?
+楼主强撑了10分钟说了一堆废话, 然后搞出了一个还算有点想法的基于图的迭代算法. 特别想听下懂ML的小伙伴的意见
+. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+5 一个帅逼ABC小哥带一个白人影子, 小哥比我还小三届, 本科刚毕业就来面试我了, 楼主惭愧(捂脸). 气氛还算融洽, 让设计一个uber pool之后的chat系统. 之前没见过这题, 不过并不难
+use case不光是普通chat, 主要集中在了怎么和uber pool结合. 小哥面系统还是脆了点(/手动坏笑), 唬得住
+
+. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+补充内容 (2017-4-26 15:53):
+第一题, P是除了A以外所有其他A的乘积
+
+补充内容 (2017-4-26 15:57):
+貌似这破坛子把我打的    当成斜体字的符号了, 什么鬼
+再打一次  P是除了A以外所有其他A的乘积
+
+补充内容 (2017-4-26 15:58):
+去你大爷的
+P{i}是除了A{i}以外所有其他A的乘积
+
+
+给一堆pair，(String,Integer)，可以理解是球的颜色和个数。放在一个桶里，写一个随机函数来抽。问怎么测试正确性。 目测已挂
+
+说一下九月中旬的uber onsite经历。因为之前一种忙着team matching和各种琐事，找工作结束后才有时间整理面经。。早上到了uber大楼（uber只是中间某几层）以后，先security checkin，然后coordinator领着去面试的会议室，会给一张schedule里面有5轮面试官的姓名和面试类别。两轮coding，一轮design，一轮hiring manager，一轮bar raiser（hiring manager和bar raiser名字后面并没有注明面试类别，但可以问hr哪个是哪个）。然后就是在会议室等第一个面试官了，可以利用这几分钟时间查一查这几个人的linkedin。
+
+第一轮design：
+面试官应该是中东小哥但听口音是美国长大，题目是design一个音乐播放器比如spotify，问题比较open，我问了他需要哪些功能，他说playlist, pause, shuffle, next song, previous song之类的，具体记不太清了。因为是design，所以我就用python写了一个media_player class，顺便假设了一些api可以用，代码并不用runnable，只要大概框架正确就行了。这一轮应该是面的最顺利的了，小哥非常友好，最后跟他聊了一些uber工作的经历等等。
+
+第二轮coding1：
+意大利小哥，问的问题是encode and decode tree，也就是tree2string, string2tree。leetcode上貌似有原题，但是不同的地方在于，leetcode上是binary tree，面试的时候我问了能不能假设tree是binary tree，他说不可以。。。于是开始码，然后写test case，然后跑代码。。感觉思路是对的，但是跑出来结果总是不对，然后debug，中间发现一个粗心大意的bug，解决后发现还有其他bug，也是各种试，最后在小哥的提醒下发现了有地方递归了两边。。所以打印出来的东西总是double了。最后也解决了，余下来五分钟聊天。这轮感觉不是很顺利，过程挺曲折的。
+第三轮bar raiser：
+一个资历比较高的manager美国人，他相当于是对着整个uber的企业文化每一个都提一下，然后问问题，要么问我在这方面的经历，或者是看法，或者是遇到这些问题我怎么处理的等等，问题太多了（估计超过十个），但每一个都没有特别深究，除非某些东西他很感兴趣，我记得的一些企业文化是: care your cumstom（如果你是backend或者infra那么你的cumstom很可能就是其他程序员），let the people do their jobs（大概就是说程序员有时候会被各种会议或者很多琐事打扰导致没法高效干本职工作），还问了我工作经历中有没有过significant impact。总体上这轮聊的也挺顺利的，因为他不问技术细节，所以就各种扯了。。
+. From 1point 3acres bbs
+第四轮hiring manager：. visit 1point3acres.com for more.
+亚裔美国人，上来聊了一聊简历，问了一下我面的是哪个组，顺便问是谁内推的我（我当时大脑短路竟然把名字忘了。。他很无语说okay you dont really know her...）他告诉我大部分情况是candidate会去内推的那个人组里。我的方向是Machine learning，他在这方面不懂，所以没有细聊。接下来就是直接一道design的题目。让我design amzon booking ranking list, data structure之类的，follow up如何更新，然后如何实现top list this day, this week, this month的功能。之后问了我他们产品中的一个challenge，就是如何把我学到的machine learning用到去解决market里面surge的问题，就是遇到有些event后price会go up，但有时候等司机都赶去地点的时候event又结束了，所以后时间差。。而且顾客也不喜欢surge这个现象。
+
+第五轮coding2.1point3acres缃�
+印度小哥，问了些BFS，DFS的问题，一共问了三道题，都是跟最短路径相关的，具体记不清了，大概是用一个matrix表示每个方向的cost，然后各种最短路径的变种，需要写test case，然后bug free才行，问道第三题的时候我都感觉他诚心想挂我了（除非第三题他当做是bonus题），因为只余下十几分钟了，而第三题一定是需要Dijkstra，之前写的code没法重用，得完完全全的重写，我只有大概思路，具体写Dijkstra的时候到了中间发现写错了，看看时间也没剩多少了，就解释说来不及写了，跟他说了思路，他说理解。
+
+面的是雅图的组，之前在地里看了相关面经，感觉近期吴波onsite题不算难，design题比较多。我的经历印证了这一点，尤其coding题真的很简单。
+. Waral 鍗氬鏈夋洿澶氭枃绔�,
+第一轮是个三哥，题目是给定二维平面上三个点，求一点使其到这三点距离相等。我说这是coding题吗，这明明是数学题。于是在白板上推平面解析几何公式，推完后套公式写代码。
+
+第二轮hiring manager是个老白，先带参观无敌海景办公室，然后聊聊经历，最后出题design吴波英雄榜，给司机排名看谁跑得多。
+
+第三轮是国人小哥，也是先聊工作经历然后做题，大意是有个data stream输入很多数据点，每个数据点包括timestamp和value，要写个get函数，给定一个timestamp，求离该timestamp最近的数据点的value。历史数据点是可以存在array里的，所以我用了二分法。最后follow up，如果输入有可能被delay，次序被打乱了怎么办等等。
+
+第四轮是国人姐姐bar raiser + 三哥 shadow， 一半时间聊工作经历，然后问了个问题，怎么找到离rider最近的司机。.鏈枃鍘熷垱鑷�1point3acres璁哄潧
+
+第五轮是国人哥哥，设计题rate limiter
+
+看了LC的Uber原题，就是Factor combination.
+
+最后就大致把Uber LC的题半看半刷了一遍。然后我的同学分享给我一个九章system design的PPT，木有视频，我就靠自己YY在飞机上刷了两遍。然后就状态很差超级紧张的去面试了。
+第一轮，TRIE，很多面经提到，然后我回答的不是很好，反正我觉得我不会算时间复杂度。导致场面一度十分尴尬。. 1point3acres.com/bbs
+第二轮，system design的题。因为面试官说我们不会写代码，于是我稍微从第一轮的阴影里解脱了。刚开始聊自己的时候，聊了一些project，结果就聊high了。加上面试官也不太懂deep learning，我就瞎扯感觉扯得很开心。于是他就顺势出题，说现在有这么多车得到的数据，我们判断一张图是不是红绿灯，要怎么做。我就乱扯，smi-supervised learning都出来了，还用了什么网络数据先train，然后用一些地点时间等数据做constraint。anyway，其实题目问题是存储的system design。于是我们就开始算数据到底多大，算了很久，终于进入了整体，我就瞎扯，我们用两级inverted index。然后又问，如果要多个GPU一起train怎么做呢？然后就加了server什么的。其实没有说很细节。他说你会parallel吗，我说我不会。于是就没有问下去了。. 鍥磋鎴戜滑@1point 3 acres
+还有剩余时间，聊一下，最简单的triangle DP。在白板上画了一下。又问怎么知道路径，再回答了一下。
+最后还有时间，我都惊呆了。他说你必须问我问题，要不然我会问你问题，于是我硬着头皮乱问了好多问题。
+第三轮，和匹兹堡小哥远程面。小哥说，我没想到我会和一个匹兹堡来的同学远程面试。好神奇。然后全程就在说我做过的project，因为小哥也不懂deep learning, 我们就聊high了。加上小哥好帅，全程微笑，我就全程站着，痴汉脸！！！
+第四轮，coding。一个印度裔小哥说，我们实现一个比较不同的stringcompare，就是当ab10遇到ab2这样的例子（也就是数字碰到数字的时候），按照数字大小判断。写完之后，再变得更robust一点。超简单。
+第五轮，就是manager聊。虽然好像是华裔女性，但是超级严肃，问了我半个，就是面经里提到的那些问题，我都没准备2333. 然后还剩半个小时，我开始问问题，我就问，哇你们新成立这个组，有什么展望什么的，然后她就滔滔不绝讲了20多分钟，谢天谢地！.
+
+
+Round3: 三哥，有两个api：/v1/api1返回{result: val1}，/v1/api2返回{result: val2}，提供异步方法request(url, successcb)，写代码打印出{result: val1 + val2}，不能使用Promise，不能嵌套callback。（不用promise的话判断所有request都resolve的条件不好处理，用了两个isFetching做flag来标志异步request是否完成，实际项目肯定不会那么写，完全不知道这道题目想考啥重点）。
+Round4：国人大哥，obj1 = {a: 1, b: 2, c: {d: 3}}，obj2 = {b: 'a', c: {d: 4}}，写一个递归函数merge(obj1, obj2)，合并后的结果为{a: 1, b: [2, 'a'], c: {d: [3, 4]}}
+Round5: 三哥director，behavior，有n个cityLog，里面的包含各个城市各个时间点的车辆的数量，比如cityLog1 = ['1:00': 3, '1:03': 5, '2:00': 7]，cityLog2 = ['1:00': 2, '1:02': 5, '2:02': 8]，写function输出各个时间点车辆数量总和, total = ['1:00': 5，'1:02': 8, '1:03': 10, '2:00': 12, '2:02': 15]，没想出什么太优化的方案，三层for循环brute force给了一组都是一月注册用户的数据：
+city
+trips_in_first_30_days
+signup_date        . 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+avg_rating_of_driver
+avg_surge
+last_trip_date
+phone
+surge_pct        uber_black_user
+weekday_pct
+avg_dist         . visit 1point3acres.com for more.
+avg_rating_by_driver
+Build a predictive model to help Uber determine whether or not a user will be retained.. 1point3acres.com/bbs
+Discuss why you chose your approach, what alternatives you considered, and any-google 1point3acres
+concerns you have. How valid is your model? Include any key indicators of model. more info on 1point3acres.com
+performance.
+
+
+西雅图driver team底下的vehicle solution team, 属于Uber的核心组，面试官白人。
+. more info on 1point3acres.com
+上来先介绍自己的组，然后聊了10分钟简历。然后是coding， 在hankrank那个面试平台上面写
+. 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+给一偏文章，统计出现频率最高的单词。 要求自己设计输入和输出，以及讨论实际应用中各种可能出现的情况以及处理方法。
+
+我写的方法是把文章parse成一个string, 接着从空格处split得到一个单词的list. 对于list里面的单词处理一下，大写变小写，字母和符号去掉。之后 用hashmap统计词频，找到最高词频并且输出一个list。
+
+写完后对面表示非常满意，然后让我提问。 本来以为可以去西雅图旅游一圈，结果过了两天HR直接发了个模板拒信，内推人让我找HR要feedback，结果对方说是机密不能给。
+
+写出一个auto complete的程序 要求程序可以跑test。当时写出了trie 就差最后的dfs没写完 面试官不允许我用boolean去标记 说是不适合同一时间很多搜索, 那么比如
+有单词["dog", "doggie"]
+我输入“do” 这时候应该“dog”和"doggie"都出现吧
+没有那个boolean我怎么知道有dog这个次存在呢
+
+给了lc239
+
+第一轮：老白，简单问了一下简历后design，要求是设计一个app让人在搭uber车的时候玩游戏，具体什么游戏无所谓。我跟他交流一下后，同意相当于在uber app里面再调一个app玩游戏，但是可以access uber app里面的用户信息什么的，挑了设计中国象棋（其实其他游戏也行，无所谓），从澄清use case开始，估算QPS和数据量什么的，再扯到后端的cache/DB这些。老白还算nice，中间问问题不是特别尖锐，自我感觉还行。
+
+第二轮：老白，hiring manager，就是问简历上的东西还有一些behavior什么的，最后问了些team的情况和uber的culture这类问题。
+
+第三轮：年轻三哥，先问了怎么设计load balancer，讲了一些主要的算法，20分钟左右。然后问知不知道cache，都有些什么cache，主要讲了LRU/LFU，以为要让写LRU，结果让写LFU，白板写的。关键剩的时间不多了，跟他讲了用的hash table + double-ended linked list，分析清楚了怎么work，最后只写了1个半的function，这里怀疑可能会被黑，尼玛让写LFU不早点弄，非要扯掉一大半的时间才开始写code。
+
+中场：午饭，第二轮的hiring manager陪着吃的，聊了聊三藩的天气什么的，以及最近的napa那个大火。 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�.
+鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�.
+第四轮：老白，问了些简历之后来了个小的design，怎么实现一个系统，如果key不在里面就新加一个entry并返回true，如果key在里面就直接返回false，类似unix系统里的touch这个命令。先讲了单机版的，主要focus在write lock怎么整；然后scale，我是用consistent hashing做的。这个老白挺nice的，一旦他觉得我懂某个东西，就认可，然后不再追问下去了。最后剩了15分钟左右聊天。
+
+第五轮：年纪大的三哥，在硅谷工作多年了。出了个题是只有一个院子，两个人要遛狗，两人的狗不合，所以不能同时在院子里，这两个人各有两面旗子，只能通过举旗来通信。其实就是多线程的信号灯问题，写了代码，并walk through。最后剩下10分钟左右聊天。
+
+第六轮：小白，他在1455那个楼，所以视频聊的。纯behavior，谈了team work，怎么处理冲突，以及uber的culture这些问题。这轮本来只有45分钟，到时候了本来安排是我的recruiter跟我聊一下送人的，但他一直没来，这个小白陪着我多聊了15分钟直到他的会议室有meeting把他踢出去了，这15分钟有在kill some time的感觉，略有点尴尬。最后是coordinator来把我送走的，说1天左右出结果。
+
+本来以为有一轮OO design的，但是没问。总体感觉是code写的很少，design的范围很宽，对方nice一点可以勉强撑下去，如果追根求地很容易被问倒。behavior的问题挺多，每个人都问简历，这些soft skill就不好把握了，只能尽量表现得positive，至于对方是否满意就不好说了。
+
+题目是把interger表示成平方数的和，求能够实现的最少的平方数的个数。
+
+design一个data structure，要实现的function有insert(K,V), delete(K), get(K), getMinKey, getMaxKey，不用考虑insert的runtime，follow up是如果考虑insert的runtime。
+
+求两个interval list 的交集并集。其他有几个同学面到的有word break II, word pattern II.
+
+设计一个函数使得local和server的数据同步， 其中delete, persist函数已经给出。 是ios team的小哥
+
+上午二轮，二个小时project coding，半个小时讨论和review，差不多12:30, manager带我去吃了中饭。打好饭带我回了office，吃到1点。开始了半个小时的behavior，问了些和facebook类似的问题。接着是第4轮的（差不多40分钟）的 bar interview面，比如你失败的项目等等。第5轮是系统设计，1个小时，这轮很随意的，因为他先是问我玩过什么游戏，我说我从来不玩游戏，也讨厌玩游戏，然后他想了大概几分钟给我出了某某APP。其中，我问:"would you mind I eat this (a kind of fruit从厨房拿的, I don't know how to say English)? ", He said " Sure!" 然后我差不多吃完了，他才想出来给我设计啥。第6轮，是个长头发的男人，when I interduce my experience, he was interested with my project. So he was going to discuss my previous project. 这花了大概半个小时，然后出了个中等的算法题。4点半，长头发男人送我出电梯，巧的是在电梯时，我又遇到了manager哈哈。How is going today? 肯定得客气客气嘛，good, good. 然后他又去了别的楼层，好像是开会了。
+.鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
+总体感觉，并没的高深算法，都是些瞎聊的话题。只需要一点点算法就好了。. 鍥磋鎴戜滑@1point 3 acres
+
+
+给两组排好序的non-intersected的internvals，比如 [0, 0], [2, 2], [5, 10]. 1point 3acres 璁哄潧
+跟LC的interval的区别是这里intervals是离散的，类似[0, 0], [1, 2]这样的是invalid，因为可以写成[0, 2]
+
+让写出对两组intervals的AND操作以及OR操作，输入输出，数据结构都可以自己定义
+
+https://moonlightsd.gitbooks.io/road-to-amz/content/insert_into_cycle_linked_list.html
+
+
+电面是 insert_into_cycle_linked_list.html: https://moonlightsd.gitbooks.io/ ... le_linked_list.html
+
+onsite：
+1. 给出 ［“1999-02-13”， “2001-03-14"］ 打印出中间所有的月份 ［“1999-02-13”， “1999-02-28"]，［“1999-03-01”， “1999-03-31"] ...  ["2001-03-01", “2001-03-14"］
+当然input可以是任意年月日。要求当场能运行，中间有问题不回答， 让自己查 google 和 stackoverflow. 最后code都没有写完，更别提其它的了。我写的时候也没有什么技巧，就是各种判断和打印， 但边界条件过多，相同的年份，月份，起始月份，结束月份。。。在这里请教高手指点clean 的程序。. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+2.  https://leetcode.com/problems/ma ... -k/tabs/description
+3. design typehead, 实现trienode 和 trie 类 还有buildTrie 和 searchTrieLeafNode方法. from: 1point3acres.com/bbs
+4. hc聊一下 why uber, why leave your current job.
+5. design pokemonGo. pokemonGo有三个要求，显示pokemonStop, spinpokeMonstop, catchPokemon. 在提到要把pokemonStop信息存储的时候，卡住了。因为pokemonstop的数目很多要多台DB, 如何sharding成了问题。如果按照id sharding，用坐标查询附近的stop就很麻烦。如果按城市存储，查询的坐标正好落在城市边缘就要去另外一个数据库查询。如果DB存一些周围城市stop 的duplication, consistence 就成了问题。请高手指点如何存储stop 的信息并且方便按cutomer的位置进行快速的查询。
+
+
+面试官是做uberEat的  ios开发
+题目valid sudoku (实现方法isValid()).  唯一和leetcode的不一样就是empty cell是0.
+做完之后有followUp. 因为valid Sudoku的board是incomplete，followup是如何稍微修改一下之前的isValid()的方法，对于complete的board怎么判断是不是valid(不存在0，以及没有重复).
+
+利扣柳伞柳，题本身不难
+要主动要求自定义function signature
+写完解法后要求自己生test case测试
+要注意的地方是不像利扣test case都帮你整理得好好的
+这位面试官要求要想出所有invalid input并且把他们都throw exception
+比如，最简单的像是只有一个start的log却没有end，这也算是invalid。
+差不多就那些，另外recrusive的是valid的
+比如
+function 0 starts at 100
+function 0 starts at 101 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�.
+function 0 ends at 102
+function 0 ends at 103
+这是合法的例子
+
+
+返回最常访问的N个网络地址， 有两个函数，1。访问那个网络地址，2. 返回现在最常访问的N个网络地址。网络地址可以很多并且无限大
+
+题是写一个ratelimiter作为另一个函数的wrapper，输入ip地址，若一定时间内访问次数到达limit则throwexception，否则call此函数
+
+题目的大意是怎么设计一个算法能同时处理不多于10个并行请求。我还以为是版上的高频题rate limiter，就跟他说打算用queue来做，结果小白说这不是他想考的，他想问的是已经保证并行request不超过10个，怎么做？才明白这是个多线程的题目，答曰用一个母线程处理quest，每来一个request就开一个线程去做具体的处理。小白说对，那就写code吧。我赶紧支支吾吾地告诉他，多线程这些东西概念还算清楚，写代码的话C++的语法根本不知道。其实我的意思是大哥咱直接撸算法吧，算法题搞不定的话我也愿赌服输了。小白说没事，你可以google。这是存心要挂我的节奏啊 ，只好硬着头皮边google边写，中间有问题的话感觉小白也不是很愿意接上，总之交互性一般。codepair是一片空白，好不容易把main（包括简单的test case）, 主线程处理request函数，子线程具体干活的函数写完，就差不多没时间了，到最后还有个线程间传递参数的问题编译不过，C++各种指针包括void*确实麻烦。
+. 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+小白说没时间了，你还有什么问题要问我的么？自知回天乏术了，就简单地问了一下小白具体干啥的和uber内部的氛围什么的，顺便吹捧了一下uber，原来这哥们是玩kernel这类非常底层的咚咚的，怪不得出这种题目。
+
+
+刚刚面完uber.... 1point 3acres 璁哄潧
+一个三哥，一开始让我介绍自己，我说了一下我实习经历，然后他说时间可能来不及，先写题目吧。
+然后，就出了一道reverse words of string...我一开始就用那个in place的方法做，先reverse整个string, 再单独reverse。
+他说这个方法不好，有没有更好的，我说可能没有了，这个方法只需要跑两遍，不用extra memory。
+他一定让我想，我就说可以split，加到list里面，然后再输出。他问我这个方法相比第一个有哪些优点。
+我想了一下觉得如果用java的话，string是immutable的，也是要用extra space的，但是用c/c++，就可以in place.. 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+他说第二个方法更加易读，更加容易维护。说如果中间有extra space会怎么用的情况，然后就让我写代码。
+然后，我就开始写，第一遍大致对了，然后最后一个word怎么都加不进去，我脑抽了以为是判断出了问题，其实是忘了考虑
+如果跑到string最后的该加进去。。。三哥全程一言不发。。。我就一直尝试自言自语解释。最后找出问题了，正常情况都可以了，
+三哥跑了一下最后有trailing spaces的情况。然后，没有过。。。
+
+电面问题 合法的Sudoku。
+Oniste。. Waral 鍗氬鏈夋洿澶氭枃绔�,
+第一轮 bar raiser。 亚裔 聊简历， 项目， 然后问了一题类似周一到周日有整点时间段， 给你时间 怎么判断是否在时间段里。 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�.
+第二轮 hiring manager 。白人 聊简历， 项目， 实习。 喜欢做什么。 不喜欢做什么。
+第三轮 code 。 白人 CVS parser。 给你一个string  变成vector<vector<string>> .
+第四轮 设计 印度人。 找出区间内的最高 ride。 大约就是数据流一直进来。 写一个getMax（Time T1，Time T2） 返回这个时间段的最高ride。
+第五轮 华人. iterator 二叉树。
+. visit 1point3acres.com for more.
+每轮只写了一题。 因为要debug 而且还要run 还要写test case
+
+面的 SF office。组不知道。 小哥 非常 nice。。
+所以input是一个string? 比如"add(add(1,2),sub(3,4))"
+只面了一题， 类似basic calculator,
+add(1,2)
+sub(3,4)
+add(add(1,2),sub(3,4))
+
+假设你要买房子，然后你有一堆dataset,  你要设计filter API使得你可以快速找到房子。 . 鍥磋鎴戜滑@1point 3 acres
+Demension:
+. 1point 3acres 璁哄潧
+
+1. Zipcode
+2. price
+3. # of bedroom
+4. # bathroom. more info on 1point3acres.com
+
+1. Filter 需要非常extensible, .1point3acres缃�
+2. API 需要非常好用
+
+
+什么叫设计filter api啊？ 设计需要哪些api吗？ 还是设计如何实现一些常见api 比如 “getResultInZipcode()” 之类的？
+. visit 1point3acres.com for more.
+说说我的想法. more info on 1point3acres.com
+1） backend data storage --> 存储listing信息 需要global uniq id。 可以用listingID 也可以用 listingID + region code 这样的话在其他地方launch的话可以防止不同国家地区法律导致的listingId重复。或者系统生成一个global uniq ID 这样也不会重复。 no-sql storage存储这些 没什么压力。
+
+2）常用API，可以设计一个query class 有这些filter的field。 这样不需要太多api 基本上通过User interface来决定输入，然后map成object 发送一个query去service搜素。
+
+3） 搜素，提高效率需要对这些东西index。讨论一下index的trade off之类。
+
+4）更新， 除了price可能会变，其他的不太会变。所以需要有个listener react on 1） price change 2） new listing
+
+5。。。。多说说过程中涉及到的东西的细节。。不详述了。
+
+
+给2个Array of Intervals，比如. 1point3acres.com/bbs
+A = [[1,2], [4,6]]
+B = [[2,3,], [5,7]]
+找出A和B的所有交集
+return [[2,2], [5,6]]
+
+给的题目是给两个String，都是用空格隔开的单词，找出每个句子中最大的palindrome 单词并比较是否相等 二面的follow up是如果想找出两个句子中最大的相同的palindrome 应该怎么找
+
+LC 228. 写完之后让我想各种有趣的test
+之后是follow up, 如何把上一问的输出还原成数组，需要跟他讨论一下输出细节。
+
+Interval List A：<1,3> <5,7>
+B: <4,6>
+输出交集 <5,6>
+输出并集 <1,7> 要求是如果前一个interval的end是后一个的start-1要合并。多谢中国大哥放水
+
+给List<List<Integer>> 找出所有在每一个里都取一个integer的组合。recursive写完要求写了iterative没写完。
+
+
+七月份的时候朋友内推面了黑车公司。电面。是个国人大哥，国人小姐姐shadow。.1point3acres缃�
+题目是typeahead.
+场景：
+他们的app里的地图可以输入一个地点，之后要求以这个字符串为前缀推荐几个地点。
+
+1. 在网上编辑器写， 并没有编译功能.1point3acres缃�
+2. 从class, method 定义到具体实现都是自己写， 45分钟. more info on 1point3acres.com
+3. 思路应该是用Trie 找prefix, 再在该node上dfs返回所有输入。. From 1point 3acres bbs
+
+我的思路是在每个词结尾的node存入这个词，之后遇到结尾直接返回，但是大哥说Trie的一个特点就是节省空间，不让我在结尾存整个字符。这样的话就需要边遍历，边存结果。
+
+
+Phone: （直接复制粘贴过来，大家看吧)
+// Compute Exclusive Time
+. 1point3acres.com/bbs
+// Given a Log File as Below:
+// Function         Action      Timestamp
+//    F1            Enter       10:00:00. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+//    F2            Enter      10:00:06
+//    F2            Exit         10:00:07
+//    F3            Enter       10:00:08
+//    F3            Exit        10:00:12
+//    F1            Exit        10:00:15. visit 1point3acres.com for more.
+//
+// You need to compute the exclusive time spent in a given function.
+// For example:
+// Exclusive time F1 = 10 second
+// Exclusive time F2 = 1 second
+// Exclusive time F3 = 4 second
+这个函数调用需要考虑到递归，或者更复杂的函数调用（比如F1 call F2, F2 call F2 又 call F3, F3 又 call F2和F1等）
+
+Onsite:
+1. 01 Matrix找两点最短路径。 然后是Max production subarray.
+2. BQ manager （他的linkedin 履历及其丰富，巨长，scroll 好几页，全是不同的单位和职位，过去20年换了几十个工作吧。。当过CEO。。）
+3. Design serverless platform. (e.g. Amazon lambda)
+4. Design video platform (e.g. Youtube)
+5. Island counts  I II 。不过题设是变种，要求可以走对角线。I II 做完后，最后一个follow up比较难，是在II的基础上，支持删除点。用并查集的话，删除做起来很麻烦。我当时想了下是不是可以枚举几种状态，但又觉着不行，准备换思路时，面试官提示，你老忘，这个岛屿是可以走对角线的（是啊， 刷题时不是这么刷的，思维定式根深蒂固），然后讨论了下，如果可以走对角线，删除问题其实是比不考虑对角线好做的（因为想完全删断联系需要更严格的条件）。. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+
+最后挂了，说是系统设计和general problem solving有问题，coding和bq都很好。
+不解，因为系统设计当时都已经答道面试官盯着白板30秒，不知道还能问啥问题的地步。。
+general problem solving就更不解了。。是因为最后那题吗？那算coding吧。。而且最后两问都有完整的正确代码，最后一问也讨论的很透彻了呀。
+
+可能因为是title的原因，我面的senior， 而GFO面的都是senior下面那级，可能他们觉着根据我工作年限，没法给一个senior title吧。
+
+
+ber 第一轮 国人大哥面我，combination sum。 唯一不同的是这个有负数，0.。。做出来了，run cases没问题。。。。最后我SB说了一嘴，我见过一个类似的，只有正数。。。。。。。。我自己的锅，然后就挂了。。。。。然后HR小哥，为人很nice帮我安排了加面，加面烙印问了开会interval问题，要求返回不开会时间，他给的example还是错的，我写完了也全写出来了run cases没问题。。然后又出了一个需要几件会议室的那个题，都是原题。楼主小心翼翼管好嘴，没有说错话。。。结果还是挂了，因为烙印说看了，，第一轮的feedback，，，决定挂了我。。。。
+
+上周二面的Uber，现在发来攒攒人品。我这轮uber呢，其实说实话只能给大家作为参考，估计被考到的概率级低。
+楼主感觉这个题应该就是面试官他们现在做的。面试官上来说了个词问我知道不，楼主鼠躯一震，也许自己听力不行，但是确实没听说过啊，我说要不你type出来，结果不出所料，写出来了我也不知道，因为楼主是转专业转行，所以对计算机一些知识真是不清楚。
+题目如下：
+设计call rate limit.具体是说给你一个ip，你先chec是否有大于100个call from this ip since last second. 大于100就throw exception，没有的话就 do sth。
+我当时完全不知道这个概念，就只能将大problem break down成一个个小问题，然后把大的框架跟面试官说，把我的想法一点点跟他交流。因为完全不理解题意，所以只能摸着石头过河，不过每一步你都要有非常清晰的大的逻辑概念，然后跟面试官讨论。
+
+最后面完了跟同学讨论，才知道其实这个题就像是你双十一淘宝购物，可能你一下子下了100个单，如果这100个单so far都没有人去consume或者商家接单处理的话，你就不能再下单了。你也可以理解为网上购票系统，你一个ip买了100个票，如果这些票还没有被商家consume掉，就不能允许你再下单了。总之基本就是这个意思。.
+
+
+uber 店面，设计一个短信系统，超过max的字数会变成第二段短信，以此类推。
+
+
+题目就是有一个process tree，类似一个process有dependencies，要这些dependencies完成了才可以执行。面试官也没有说要返回什么，我问了，告诉我说随便。。。我也是一脸蒙蔽。。
+用queue做的，一个waitlist把所有的porcess全存进去，然后如果dependencies没完成，就再append回去。
+
+题目是：. Waral 鍗氬鏈夋洿澶氭枃绔�,
+project：人
+
+输出每个人有哪些projects，很简单，没有什麽算法
+
+
+Implement nested integer iterator..
+implement an iterator so when calling the next(), input: {1， 2， 3，{4， {5， 6}}}, output: 1, 2, 3, 4, 5, 6
+https://codereview.stackexchange.com/questions/32827/flatten-iterator-for-nested-list
+
+1. LC283+followup, LC398改成找最大的random要求O(n). 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+2. manager聊天. 1point3acres.com/bbs
+3. bar raiser聊天. 1point3acres.com/bbs
+4. LC207, 電梯設計
+5. 設計twitter
+
+电面
+Rate limiter (~LC359?)
+
+昂赛特
+Given a target number and a set of coins, return the number of ways to pick coins (~LC39?)
+Word break (LC139)
+Design uber eat (system design)
+Design messaging platform (system design)-google 1point3acres
+Design ads platform (system design)
+
+U家还是挺不错  遇到面试官人都很好而且strong
+
+uber 的coding部分不是白板写，都需要电脑上写，现场编译、运行
+1. 印度HR, 问一些behavioal question, 比如跟别人有冲突怎么办，问自己的兴趣、以前的经历，还有一些cs 数据结构 概念。 问的很广
+2. 俄罗斯女？ 题目是给一堆词，每个词可能出现多次，找出以某个 sequence为prefix的top k个词。为说可以用trie做的，她说可以，然后开始写代码，但是中途卡了下，时间不够，没写完
+3. 国人女。 如何判断一个文件有没有update, 如果update了，要把文件的内容copy到另一个文件
+4. 印度小哥，ood， 设计一个battleship game
+
+leetcode 291的变形，第一个input不是String，是个char array.
+写个 黑车 公司面经吧， 上周面的，这周还没有给消息， 估计已经挂了，当然除非 开挂 了..
+看完recruiter发过来onsite 要面的人， 一共5轮,  四个南亚 人口仅次于或者实际上已经超过了我国的国家的人 和 一个土耳其大哥..心里边顿时凉了半截。
+所以也就非常轻松的去了。
+
+1. design 一个hashHeap..  具体的scenario 忘了， 好像是一堆task, 每个 task 有一个priority，
+    当需要update 一个task 的priority 的时候， 用 hashHeap 来access 某一个element, 然后重新siftUp or siftDown, 来维持整个堆的特性。 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�.
+
+2. design a data structure which suport
+    insert(key, value) 鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�.
+    delete(key)
+    update(key, value)
+    max()  // 取出这个data structure 中最大的元素..
+    所有的操作都是用O(1).
+
+3. design 一个手机 app, 每天早上6点，给你发notification, 告诉你有那些popular 的apps, 或者根据 你现在手机上装的apps, 给你一个list of recommending apps.
+     从前端扯到后端.
+4. coding: .1point3acres缃�
+    matrix, 里边有element 可以通过， 有一些element 是障碍， 找到从左上角的点到达右下角的点一共有多少路径， return the number of paths.
+    follow up:
+    打印出来所有的路径。
+5. 各种behavior question.
+
+求加米啊..
+
+
+补充内容 (2017-7-26 05:19):
+说一下第二题，面试的时候想了一堆LRU, LFU, hashHeap，还有LC 上边min stack....之类的数据结构， 想着看能不能reach 到面试官的想法， 结果高冷的三哥 除了no和it doesn't work 之外没说过啥了.
+
+补充内容 (2017-7-26 05:22):
+然后我又问咱能不能offline  处理些数据啊... 回应是no..回来查了一下， 能够实现所有O(1) 的应该必须是某些特殊的操作， 比如说： min stack, lc432(all O one Data structure), etc. 这种所有的而且实时的O(1),
+
+补充内容 (2017-7-26 05:24):
+应该是有些难度， 当然小弟才疏学浅。 不过anyway 了， 面试这个东西， 大部分情况是看个眼缘..放平心态就好..
+
+补充内容 (2017-7-26 05:25):
+第二题小弟面试的时候和面试官确认过了， 没有啥其他假设， 就是单纯的 insert, delete, update, max...顺序random..
+
+
+楼主其实已经拿到其他offer, 但是早前约了一个Uber电面然后完全忘记了...结果昨天接到电话一脸懵逼，满脑子想的怎么婉拒，但是又拉不下脸皮。偏偏又碰到一个热情的印度小哥，我各种显示不专业，但小哥就是不离不弃...我说我怎么记得面试不是今天，小哥说没事，我当时正赶final, 一下连链接都找不到，小哥说没事，我给你再发个...
+言归正传， 题目其实还比较简单, 因为没准备也不知道地里有没有. 1point 3acres 璁哄潧
+给一个 words = ["a", "b", "c"], 一个 weights = [1, 2, 3] 然后写一个function按照对应的weight来生成 word
+比如如果生成600次，a 大致出现100次，b 大致200次， c大致300次
+做完之后他再让你生成n次再统计输出一下结果
+
+
+#############################
+#
+# Most Important
+#
+#############################
+
+Why Uber
+
+
+#############################
+#
+# Algorithm
+#
+#############################
+
+Coding: 给一颗二叉树，每一个节点有一个value，找出一堆不相邻的节点，使得他们value的和最大。节点之间有link就算相邻，比如parent和children
+Coding: Rate limiter (http://blog.gssxgss.me/not-a-simple-problem-rate-limiting/) token bucket, leaky buckt
+Coding: LRU Cache， follow-up 为什么用double linked list, Complexity, 修改为thread-safe的code
+Coding: Sudoku validate + solver
+Coding: 找出string里所有是palindrome的subsequence
+Coding: Number of Islands I/II
+Coding: Sorting algorithms
+Coding: Course schedule II
+Coding: Nested Iterator
+Coding: Recover Binary Search Tree
+Coding: House Robber
+Coding: merge two sorted linked list，lc原题。只是又问了两个follow up，一个是去除重复元素merge怎么做，另一个是merge的时候不算重复的数字怎么做
+Coding: BST怎么找到kth smallest element
+Coding: reverse words of string
+Coding: Implement TimeTravelingHashTable的get和insert方法.
+* TimeTravelingHashTable
+* insert(key, value, timestamp)
+* get(key, timestamp)
+* get(key) // returns value associated with key at latest time
+Coding: LeetCode304, LeetCode308 (know quad tree solution)
+Coding:  http://www.fgdsb.com/2015/01/25/group-contacts/ (union find)
+Coding: LeetCode Word Search II
+Coding: 3Sum/4Sum
+Coding: Weighted Random Gen
+Coding: word pattern I 和word pattern II
+Coding: LCA
+Coding: Reverse nodes in pairs
+Coding: Clone Graph
+Coding: CSV parser
+Coding: find element in rotated array
+Coding: Word Ladder
+Coding: TreeMap/RedBlack Tree
+Coding: Spiral Matrix
+Coding: Happy Number
+Coding: Count and Say
+Coding: Serialize/Deserialize N-ary Tree
+
+##############################
+#
+# Sys Design
+#
+###############################
+
+Design Uber/Uber eat
+Design Uber fare split
+Design Netflix
+Design Youtube
+Design auto suggest/auto complete
+Design Excel/Google Spread Sheet/find circle in cell dependency(topological sort)
+Design Tiny URL
+Design Facebook Messenger
+Design Spotify
+Design Bus tracking app
+Design Online multiplayer blackjack
+
+
+Kafka
+Thrift
+Riak
+Redis
+Spark Streaming
+BigTable
+Ringpop
+Uber schemaless
+
+#############################
+#
+# Userful links
+#
+#############################
+
+http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html
+https://github.com/checkcheckzz/system-design-interview
+https://eng.uber.com/
+http://basho.com/posts/technical/ubers-ringpop-and-riak/
+https://www.youtube.com/watch?v=-W9F__D3oY4
