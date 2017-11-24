@@ -564,3 +564,9 @@ https://github.com/checkcheckzz/system-design-interview
 https://eng.uber.com/
 http://basho.com/posts/technical/ubers-ringpop-and-riak/
 https://www.youtube.com/watch?v=-W9F__D3oY4
+
+
+Uber Design Questions1. 让design uber app2. 常见题-Design spotify，主要在问playlist和shuffle list功能。3. facebook friends recommendation。4. Excel设计5. 聊项目 + 设计Messenger。因为我之前写过P2P的聊天软件就先讨论了一下P2P vs. S/C， 然后就有服务器的情况深入，authentication，scalability,reliability, database, cache …6. 设计一个parkinglot, 然后parking lot 有digital sign 可以显示 汽车和摩托车还有多少空位然后我就用两个变量去记录cur .然后followup 继续问，那要是有好多种新的车型6. Desing， tiny url。7. System design, subscription8. design game:tilt maze9. 设计rate limiter。10. 有一个第三方的API，写一个wrapper来限制这个API每分钟call的次数，比如每分钟100次。如果，没超过限制，就call这个API；否则，就给userthrow个exception11. 一个国人中年人，设计题：设计一个email系统，搞了半天才发现面试官要求focus在数据库里面table的设计上面，在面试官的提示下瞎设计了一个12. SystemDesign. 设计Instagram.13. DesignYoutube / Netflix14. 题目是设计一个租车系统
+
+链接: https://instant.1point3acres.com/thread/143600
+来源: 一亩三分地
