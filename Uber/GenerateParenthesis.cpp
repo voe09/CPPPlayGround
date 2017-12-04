@@ -81,3 +81,56 @@ public:
         }
     }
 };
+
+
+/*
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+[
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()"
+]*/
+#include <string>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+void helper(int left, int right, string &curr, vector<string> &res) {
+	if (left == 0 && right == 0) {
+		res.push_back(curr);
+		return;
+	}
+	if (left > right) return;
+
+	if (left > 0) {
+		curr += "(";
+		helper(left - 1, right, curr, res);
+		curr.pop_back();
+	}
+
+	if (right > 0) {
+		curr += ")";
+		helper(left, right - 1, curr, res);
+		curr.pop_back();
+	}
+}
+
+vector<string> generateParenthesis(int n) {
+	vector<string> res;
+	string curr;
+	helper(n, n, curr, res);
+	return res;
+}
+
+int main() {
+	auto res = generateParenthesis(3);
+	for (const auto &p : res) {
+		cout << p << endl;
+	}
+}
+
