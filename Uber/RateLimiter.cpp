@@ -93,3 +93,52 @@ int main() {
         hello(limiter);
     }
 }
+
+#include <chrono>
+#include <thread>
+#include <iostream>
+using namespace std;
+
+
+class RateLimiter {
+public:
+    RateLimiter(int limit) : capacity(limit), tokenPerSec(limit), token(limit),
+                             prev(chrono::high_resolution_clock::now()) {}
+
+    bool take() {
+        auto curr = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::microseconds>(curr - prev).count();
+        prev = curr;
+        token += (static_cast<int>(duration * tokenPerSec / 1000));
+        if (token > capacity) token = capacity;
+        --token;
+        if (token < 0) {
+        	token = 0;
+        	return false;
+		}
+        return true;
+    }
+
+private:
+    int capacity;
+    int tokenPerSec;
+    int token;
+    chrono::high_resolution_clock::time_point prev;
+};
+
+int main() {
+    RateLimiter limiter(3);
+    for (int i = 0; i < 6; ++i)
+        cout << limiter.take() << endl;
+    chrono::microseconds dura(500);
+    this_thread::sleep_for(dura);
+    for (int i = 0; i < 3; ++i) {
+        cout << limiter.take() << endl;
+    }
+
+    dura = chrono::microseconds(1000);
+    this_thread::sleep_for(dura);
+    for (int i = 0; i < 3; ++i) {
+        cout << limiter.take() << endl;
+    }
+}

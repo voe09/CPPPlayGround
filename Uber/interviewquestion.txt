@@ -3,6 +3,8 @@ Tree find common ancestor和smallest k elements of array
 算square root，先是return int，然后变成return k decimal place
 
 设计music player
+Design and Implement a music player that has the songs and  band Names stored internally in this class using appropriate data structure . with the methods to play a song and find the top played song
+
 
 拼车系统，日志里记录司机的id和每个trip的起始和结束时间，如果两个trip有重叠则组成一个chain，找出最长的chain（trip的数量最多）和所属的司机 一个司机可能会pick up乘客A，pick up乘客B，drop off乘客A，pick up C， drop C， drop B， 这是一个长度为3的chain
 

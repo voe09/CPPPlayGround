@@ -102,3 +102,82 @@ int main() {
     }
 }
 
+
+#include <vector>
+#include <iostream>
+using namespace std;
+
+//void helper(vector<int> &nums, int target,
+//            vector<int> &curr, vector<vector<int>> &res) {
+//    if (target <= 0) {
+//        if (target == 0) res.push_back(curr);
+//        return;
+//    }
+//
+//    for (int i = 0; i < nums.size(); ++i) {
+//        curr.push_back(nums[i]);
+//        helper(nums, target - nums[i], curr, res);
+//        curr.pop_back();
+//    }
+//}
+//
+//vector<vector<int>> CombinationSum(vector<int> nums, int target) {
+//	if (nums.empty()) return {};
+//	int sign = nums[0] > 0 ? 1 : -1;
+//	if (sign == 1 && target <= 0) return {};
+//	if (sign == -1 && target >= 0) return {};
+//	if (sign == -1) {
+//		for (auto &num : nums) num = abs(num);
+//		target = abs(target);
+//	}
+//    vector<vector<int>> res;
+//    vector<int> curr;
+//    helper(nums, target, curr, res);
+//    if (sign == -1) {
+//    	for (auto &vec : res) {
+//    		for (auto &num : vec)
+//    			num = sign * num;
+//		}
+//	}
+//    return res;
+//}
+
+int numOfSum(vector<int> nums, int target) {
+	if (target <= 0) return 0;
+	vector<int> dp (target + 1, 0);
+	dp[0] = 1;
+	for (int i = 1; i <= target; ++i) {
+		for (const auto &num : nums) {
+			if (num <= i)
+				dp[i] += dp[i - num];
+		}
+	}
+	return dp[target];
+}
+
+int main() {
+	vector<int> nums {2, 3, 5, 7};
+	int res = numOfSum(nums, 7);
+	cout << res << endl;
+//	vector<int> nums {-2, -3, -5, -7};
+//	auto res1 = CombinationSum(nums, -7);
+//	for (const auto &vec : res1) {
+//		for (const auto &num : vec) {
+//			cout << num << " ";
+//		}
+//		cout << endl;
+//	}
+//
+//	vector<int> nums2 {2, 3, 5, 7};
+//	auto res = CombinationSum(nums2, 9);
+//	for (const auto &vec : res) {
+//		for (const auto &num : vec) {
+//			cout << num << " ";
+//		}
+//		cout << endl;
+//	}
+
+//	vector<int> num {};
+//	auto res = CombinationSum(num, 9);
+//	cout << res.empty() << endl;
+}
