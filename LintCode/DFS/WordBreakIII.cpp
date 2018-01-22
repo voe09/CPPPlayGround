@@ -22,5 +22,16 @@ public:
      */
     int wordBreak3(string& s, unordered_set<string>& dict) {
         // Write your code here
+        int n = s.size();
+        vector<int> dp(n + 1, 0);
+        dp[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (dict.count(s.substr(j, i - j))) {
+                    dp[i] += dp[j];
+                }
+            }
+        }
+        return dp[n];
     }
 };
