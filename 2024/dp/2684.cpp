@@ -8,6 +8,7 @@ public:
         vector<vector<int>> dp(m, vector<int>(n, -1));
         int res = 0;
         for (int i = 0; i < m; i++) dp[i][0] = 0;
+        // loop ordering matters
         for (int j = 1; j < n; j++) {
             for (int i = 0; i < m; i++) {
                 for (const pair<int, int> &dir : dirs) {
