@@ -9,8 +9,10 @@ public:
 
         long prefix = stol(n.substr(0, (len + 1) / 2));
         for (int i = -1; i <= 1; i++) {
-            long pre = prefix + i;
-            long cand = stol(to_string(pre) + to_string(pre).substr(0, len/2));
+            string pre = to_string(prefix + i);
+            string post = pre.substr(0, len/2);
+            reverse(post.begin(), post.end());
+            long cand = stol(pre + post);
             candidate.insert(cand);
         }
         candidate.erase(num);
