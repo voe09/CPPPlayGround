@@ -41,3 +41,35 @@ public:
         return -1;
     }
 };
+
+
+// DP solution
+class Solution {
+public:
+    vector<int> shortestDistanceAfterQueries(int n, vector<vector<int>>& queries) {
+        vector<int> res;
+        vector<vector<int>> graph(n);
+        for (int i = 0; i < n-1; i++) {
+            graph[i].push_back(i+1);
+        }
+
+        for (vector<int> &q : queries) {
+            graph[q[0]].push_back(q[1]);
+            res.push_back(helper(graph));
+        }
+
+        return res;
+    }
+
+    int helper(vector<vector<int>> &graph) {
+        int n = graph.size();
+        vector<int> dp(n, INT_MAX);
+        dp[n-1] = 0;
+        for (int i = n - 2; i >= 0; i--) {
+            for (int neighbor : graph[i]) {
+                dp[i] = min(dp[i], dp[neighbor] + 1);
+            }
+        }
+        return dp[0];
+    }
+};
