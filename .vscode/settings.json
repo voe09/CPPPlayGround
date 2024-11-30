@@ -5,6 +5,8 @@
         "format": "cpp",
         "vector": "cpp",
         "xstring": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "initializer_list": "cpp",
+        "xutility": "cpp"
     }
 }
