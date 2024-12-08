@@ -16,3 +16,28 @@ public:
         return res;
     }
 };
+
+
+// stack solution - much hard to understand
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        stack<int> stk;
+        int res = 0;
+        for (int i = 0; i < height.size(); i++) {
+            if (stk.empty() || height[stk.top()] >= height[i]) {
+                stk.push(i);
+            } else {
+                while (!stk.empty() && height[stk.top()] < height[i]) {
+                    int t = stk.top();
+                    stk.pop();
+                    if (stk.empty()) continue;
+                    int dist = i - stk.top() - 1;
+                    res += (min(height[stk.top()], height[i]) - height[t]) * dist;
+                }
+                stk.push(i);
+            }
+        }
+        return res;
+    }
+};
