@@ -37,3 +37,46 @@ public:
         return res;
     }
 };
+
+// repractice
+class Solution {
+public:
+    int calculate(string s) {
+        int n = s.size();
+        stack<int> stk;
+        int num = 0;
+        char op = '+';
+        for (int i = 0; i < n; i++) {
+            char c = s[i];
+            if (i != n-1 && c == ' ') continue;
+            if (c >= '0' && c <= '9') {
+                num = num * 10 + (c - '0');
+            }
+            
+            if (c < '0' || c > '9' || i == n-1) {
+                if (op == '+') stk.push(num);
+                else if (op == '-') stk.push(-num);
+                else if (op == '*') {
+                    int t = stk.top();
+                    stk.pop();
+                    stk.push(num * t);
+                } else if (op == '/') {
+                    int t = stk.top();
+                    stk.pop();
+                    stk.push(t / num);
+                }
+
+                num = 0;
+                if (i != n-1) op = c;
+            }
+        }
+
+        int res = 0;
+        while (!stk.empty()) {
+            res += stk.top();
+            stk.pop();
+        }
+
+        return res;
+    }
+};
